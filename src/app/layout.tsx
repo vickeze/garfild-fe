@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
 import './globals.css'
 import { Header } from 'src/components/organisms'
+import { Footer } from 'src/components/organisms/Footer/Footer'
 
 const roboto = Roboto({ subsets: ['latin'], weight: '500' })
 
@@ -16,10 +17,13 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang='en'>
-            <body className={roboto.className}>
+        <html lang='en' className='overflow-visible'>
+            <body
+                className={`${roboto.className} bg-base before:content-[''] before:fixed before:bg-primary before:h-[999px] before:w-full before:bottom-[-500px] before:z-[-1]`}
+            >
                 <Header />
                 {children}
+                <Footer />
             </body>
         </html>
     )
