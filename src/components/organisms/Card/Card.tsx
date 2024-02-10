@@ -1,14 +1,7 @@
 import { Typography } from 'src/components/atoms'
 import { CardImage, CardPrice } from 'src/components/molecules'
+import { Product } from 'src/types/product'
 
-export type Product = {
-    price: number
-    salePrice?: number
-    name: string
-    details: string
-    category: string
-    imageSrc: string
-}
 interface CardProps {
     product: Product
 }
@@ -21,11 +14,11 @@ export function Card({ product }: CardProps) {
     return (
         <div>
             <CardImage
-                imageSrc={product.imageSrc}
+                imageSrc={product.thumbnail}
                 salePercentage={product.salePrice ? salePercentage : undefined}
             />
             <Typography>{product.name}</Typography>
-            <CardPrice price={product.price} salePrice={product.salePrice} />
+            <CardPrice price={product.price} salePrice={10} />
         </div>
     )
 }
